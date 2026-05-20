@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moodboard — Yuliia Strategy Session</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #D5D6E2;
+    --card: #FFFFFF;
+    --soft: #C7C8D6;
+    --ink: #1F1F2E;
+    --heading: #2D2D3A;
+    --muted: #8A8B98;
+    --accent: #E783DA;
+    --accent-soft: #F5C9EE;
+    --accent-deep: #D670C6;
+    --silver: #B8BCC8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 60px 24px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1, h2, h3, h4 { font-family: 'Manrope', system-ui, sans-serif; color: var(--heading); }
+  h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; }
+  h2 { font-size: 1.75rem; font-weight: 700; margin-top: 72px; margin-bottom: 24px; }
+  h3 { font-size: 1.25rem; font-weight: 600; margin-bottom: 12px; }
+
+  .lead { font-size: 1.125rem; color: var(--ink); opacity: 0.85; margin-top: 16px; max-width: 700px; }
+
+  /* PALETTE */
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+  }
+  .swatch {
+    background: var(--card);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(31,31,46,0.06);
+  }
+  .swatch-color { height: 100px; }
+  .swatch-info { padding: 14px 16px; }
+  .swatch-info strong { display: block; font-family: 'Manrope', sans-serif; font-size: 0.95rem; color: var(--heading); }
+  .swatch-info span { font-size: 0.82rem; color: var(--muted); font-family: monospace; }
+  .swatch-info em { font-size: 0.78rem; color: var(--muted); display: block; margin-top: 4px; font-style: normal; }
+
+  /* TYPOGRAPHY */
+  .typo-card {
+    background: var(--card);
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(31,31,46,0.06);
+  }
+  .typo-card > * + * { margin-top: 18px; }
+  .typo-h1 { font-family: 'Manrope', sans-serif; font-size: 3rem; font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; color: var(--heading); }
+  .typo-h2 { font-family: 'Manrope', sans-serif; font-size: 2rem; font-weight: 700; color: var(--heading); }
+  .typo-h3 { font-family: 'Manrope', sans-serif; font-size: 1.4rem; font-weight: 600; color: var(--heading); }
+  .typo-body { font-size: 1.0625rem; color: var(--ink); }
+  .typo-muted { font-size: 0.95rem; color: var(--muted); }
+  .typo-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 28px; font-family: 'Manrope', sans-serif; font-weight: 500; }
+
+  /* BUTTONS */
+  .buttons-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-top: 24px; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 1.0625rem;
+    cursor: pointer;
+    border: none;
+    transition: all 200ms ease;
+    text-decoration: none;
+  }
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--accent-deep); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1.5px solid var(--silver);
+  }
+  .btn-secondary:hover { border-color: var(--ink); }
+  .btn-soft {
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+  }
+  .btn-soft:hover { background: #ecb8e6; }
+  .btn-dark {
+    background: var(--ink);
+    color: white;
+  }
+  .btn-dark:hover { background: #2D2D3A; }
+
+  /* FLOATING TELEGRAM BUTTON */
+  .floating-tg {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 56px; height: 56px;
+    background: var(--ink);
+    color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(31,31,46,0.18);
+    transition: transform 200ms ease;
+  }
+  .floating-tg:hover { transform: scale(1.05); }
+
+  /* HERO MOCK */
+  .hero-mock {
+    background: var(--card);
+    padding: 80px 60px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(31,31,46,0.06);
+    margin-top: 24px;
+  }
+  .hero-mock h1 {
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.08;
+    margin-bottom: 24px;
+  }
+  .hero-mock p {
+    color: var(--ink);
+    opacity: 0.85;
+    font-size: 1.125rem;
+    max-width: 660px;
+    margin: 0 auto 32px;
+  }
+  .hero-mock .micro {
+    margin-top: 20px;
+    font-size: 0.92rem;
+    color: var(--muted);
+  }
+
+  /* WHAT YOU GET CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+  }
+  .feature-card {
+    background: var(--card);
+    padding: 32px 28px;
+    border-radius: 18px;
+    box-shadow: 0 1px 3px rgba(31,31,46,0.06);
+  }
+  .feature-card .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    background: var(--accent-soft);
+    color: var(--accent-deep);
+    border-radius: 50%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-bottom: 18px;
+  }
+  .feature-card h3 { margin-bottom: 8px; }
+  .feature-card p { color: var(--ink); opacity: 0.78; font-size: 0.98rem; line-height: 1.55; }
+
+  /* PRICE BIG NUMBER */
+  .price-block {
+    background: var(--card);
+    padding: 60px 40px;
+    border-radius: 24px;
+    text-align: center;
+    margin-top: 24px;
+  }
+  .price-big {
+    font-family: 'Manrope', sans-serif;
+    font-size: 5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .price-meta {
+    color: var(--muted);
+    margin-top: 16px;
+    font-size: 0.98rem;
+  }
+
+  /* PAIN MIRROR EXAMPLE */
+  .pain-block {
+    background: var(--soft);
+    padding: 50px 40px;
+    border-radius: 20px;
+    margin-top: 24px;
+  }
+  .pain-block ul { list-style: none; padding: 0; }
+  .pain-block li {
+    padding: 12px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 1.0625rem;
+    color: var(--ink);
+  }
+  .pain-block li::before {
+    content: '✗';
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* SECTION LABEL */
+  .section-tag {
+    display: inline-block;
+    background: var(--ink);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  /* FOOTER */
+  .footer-note {
+    margin-top: 80px;
+    padding: 30px;
+    border-top: 1px solid var(--silver);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <span class="section-tag">Moodboard</span>
+  <h1>Палітра і компоненти<br>лендингу Yuliia Strategy Session</h1>
+  <p class="lead">Це візуальний переказ того, як виглядатимуть кольори, шрифти і ключові компоненти на майбутньому сайті. Подивись, чи влучає в твій смак — і скажи, що змінити, перш ніж Kiro почне будувати.</p>
+
+  <!-- PALETTE -->
+  <h2>Палітра</h2>
+  <div class="palette">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #D5D6E2;"></div>
+      <div class="swatch-info">
+        <strong>Background</strong>
+        <span>#D5D6E2</span>
+        <em>основний фон сторінки</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #FFFFFF; border-bottom: 1px solid #ECEDF3;"></div>
+      <div class="swatch-info">
+        <strong>Card</strong>
+        <span>#FFFFFF</span>
+        <em>фон для карток</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #C7C8D6;"></div>
+      <div class="swatch-info">
+        <strong>Soft</strong>
+        <span>#C7C8D6</span>
+        <em>відокремлені блоки</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #E783DA;"></div>
+      <div class="swatch-info">
+        <strong>Accent</strong>
+        <span>#E783DA</span>
+        <em>головний рожевий · CTA</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #F5C9EE;"></div>
+      <div class="swatch-info">
+        <strong>Accent Soft</strong>
+        <span>#F5C9EE</span>
+        <em>м'які блоки, hover</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #D670C6;"></div>
+      <div class="swatch-info">
+        <strong>Accent Deep</strong>
+        <span>#D670C6</span>
+        <em>hover на CTA</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #B8BCC8;"></div>
+      <div class="swatch-info">
+        <strong>Silver</strong>
+        <span>#B8BCC8</span>
+        <em>рамки, тонкі лінії</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #8A8B98;"></div>
+      <div class="swatch-info">
+        <strong>Muted</strong>
+        <span>#8A8B98</span>
+        <em>другорядний текст</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #2D2D3A;"></div>
+      <div class="swatch-info">
+        <strong>Heading</strong>
+        <span>#2D2D3A</span>
+        <em>заголовки</em>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #1F1F2E;"></div>
+      <div class="swatch-info">
+        <strong>Ink</strong>
+        <span>#1F1F2E</span>
+        <em>основний темний текст</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- TYPOGRAPHY -->
+  <h2>Типографіка</h2>
+  <div class="typo-card">
+    <div class="typo-label">Заголовки — Manrope</div>
+    <h1 class="typo-h1">Подивись, як зробити одне з найтрудозатратніших маркетингових завдань за пару годин — замість тижнів.</h1>
+    <h2 class="typo-h2">Знайома картина?</h2>
+    <h3 class="typo-h3">За 3 години ми закриємо те, на що йдуть тижні</h3>
+
+    <div class="typo-label">Body — Inter</div>
+    <p class="typo-body">3 години живої онлайн-сесії. Deep research ринку, конкурентів і цільової аудиторії через AI. На виході — твоє позиціонування і оффер, від якого тупо відмовлятись.</p>
+    <p class="typo-muted">28 травня · 18:00 за Києвом · Zoom · Якщо не зможеш онлайн — отримаєш запис</p>
+  </div>
+
+  <!-- BUTTONS -->
+  <h2>Кнопки і CTA</h2>
+  <div class="typo-card">
+    <div class="buttons-row">
+      <a class="btn btn-primary">Записатись за 149 грн</a>
+      <a class="btn btn-secondary">Дізнатись більше</a>
+      <a class="btn btn-soft">М'який варіант</a>
+      <a class="btn btn-dark">Темна кнопка</a>
+    </div>
+
+    <div class="typo-label">Плаваюча кнопка в Telegram</div>
+    <div style="display: flex; gap: 20px; align-items: center; margin-top: 16px;">
+      <a class="floating-tg" aria-label="Написати Юлії в Telegram">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.94 4.57a1 1 0 0 0-1.4-1.13L2.5 11.5a1 1 0 0 0 .1 1.9l4.3 1.5 1.8 5.7a1 1 0 0 0 1.7.4l2.6-2.6 4.2 3.1a1 1 0 0 0 1.6-.6l3.2-15.3z"></path>
+        </svg>
+      </a>
+      <span class="typo-muted">Завжди у нижньому правому куті</span>
+    </div>
+  </div>
+
+  <!-- HERO MOCK -->
+  <h2>Hero (приблизний вигляд)</h2>
+  <div class="hero-mock">
+    <h1>Подивись, як зробити одне з найтрудозатратніших маркетингових завдань за пару годин — замість тижнів.</h1>
+    <p>3 години живої онлайн-сесії. Deep research ринку, конкурентів і цільової аудиторії через AI. На виході — твоє позиціонування і оффер, від якого тупо відмовлятись.</p>
+    <a class="btn btn-primary">Записатись за 149 грн</a>
+    <div class="micro">28 травня · 18:00 за Києвом · Zoom · Якщо не зможеш онлайн — отримаєш запис</div>
+  </div>
+
+  <!-- PAIN MIRROR -->
+  <h2>Зеркало болей (приклад)</h2>
+  <div class="pain-block">
+    <h3>Знайома картина?</h3>
+    <p style="color: var(--ink); margin-bottom: 24px; margin-top: 8px;">Тепла аудиторія вигоріла. Знов і знов одне й те саме. А <strong>холодна</strong> — навіть не знає, що ти існуєш.</p>
+    <ul>
+      <li>Як <strong>подавати</strong> свою нішу так, щоб вона взагалі чіпала нових людей</li>
+      <li>Як <strong>говорити</strong> до людей, яких ти ще не знаєш</li>
+      <li>Як <strong>заманювати</strong> контентом тих, хто тебе ніколи не бачив</li>
+      <li>Як зібрати дослідження ЦА, не вбивши на це два тижні життя</li>
+    </ul>
+  </div>
+
+  <!-- WHAT YOU GET CARDS -->
+  <h2>Що ти отримаєш за 149 грн</h2>
+  <div class="cards-grid">
+    <div class="feature-card">
+      <div class="num">1</div>
+      <h3>Доступ на онлайн-сесію</h3>
+      <p>3 години живої роботи в Zoom 28 травня о 18:00. Ти не дивишся — ти разом зі мною робиш ресерч і збираєш позиціонування під СВІЙ бізнес.</p>
+    </div>
+    <div class="feature-card">
+      <div class="num">2</div>
+      <h3>Запис — якщо не зможеш онлайн</h3>
+      <p>Виплив форс-мажор? Дивишся в записі, повторюєш покроково. Запис залишається назавжди.</p>
+    </div>
+    <div class="feature-card">
+      <div class="num">3</div>
+      <h3>Гайд + промпти (після сесії)</h3>
+      <p>Покроковий гайд + усі AI-промпти, які я використовую. Приходить на email <strong>після</strong> веба, на основі реальних матеріалів сесії.</p>
+    </div>
+  </div>
+
+  <!-- PRICE BLOCK -->
+  <h2>Ціна (акцент)</h2>
+  <div class="price-block">
+    <div class="price-big">149 грн</div>
+    <div class="price-meta">= вартість одного обіду<br>= у 200 разів дешевше за два тижні твого часу</div>
+    <div style="margin-top: 30px;">
+      <a class="btn btn-primary">Записатись зараз</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    Moodboard для лендингу · Кольори, шрифти, ключові компоненти<br>
+    Якщо щось не подобається — скажи перш ніж Kiro почне будувати.
+  </div>
+
+</div>
+
+</body>
+</html>
