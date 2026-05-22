@@ -1,0 +1,341 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout>
+  <!-- ═══════════════════════════════════════════
+       1. HERO
+  ═══════════════════════════════════════════ -->
+  <section class="min-h-screen flex items-center bg-bg px-4 py-20 md:py-28">
+    <div class="max-w-3xl mx-auto text-center">
+      <span class="section-tag">28 травня · 18:00 · Zoom</span>
+
+      <h1 class="font-display font-extrabold text-3xl md:text-5xl lg:text-6xl text-heading leading-tight mt-4 mb-6">
+        Подивись, як зробити одне з найтрудозатратніших маркетингових завдань за пару годин&nbsp;—
+        замість тижнів.
+      </h1>
+
+      <p class="text-lg md:text-xl text-ink/80 leading-relaxed mb-4 max-w-2xl mx-auto">
+        3 години живої онлайн-сесії. Deep research ринку, конкурентів і цільової аудиторії через AI.
+        На виході — твоє позиціонування і оффер, від якого тупо відмовлятись.
+      </p>
+      <p class="text-base md:text-lg text-muted mb-10 max-w-xl mx-auto">
+        Без двох тижнів кастдевів. Без Excel-таблиць. Без ChatGPT-води.
+      </p>
+
+      <button
+        id="cta-hero"
+        onclick="handlePayment()"
+        class="btn-primary-lg mb-4 cursor-pointer"
+      >
+        Записатись за 149 грн
+      </button>
+
+      <p class="text-sm text-muted">
+        28 травня · 18:00 за Києвом · Zoom · Якщо не зможеш онлайн — отримаєш запис
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       2. PAIN MIRROR
+  ═══════════════════════════════════════════ -->
+  <section class="bg-soft px-4 py-20">
+    <div class="max-w-2xl mx-auto">
+      <span class="section-tag">Знайома картина?</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-heading mt-4 mb-6">
+        Тепла аудиторія вигоріла. Знов і знов одне й те саме.<br />
+        А <span class="text-heading underline decoration-accent decoration-2">холодна</span> — навіть не знає, що ти існуєш.
+      </h2>
+
+      <ul class="space-y-4 mb-12">
+        {[
+          ['Як', 'подавати', 'свою нішу так, щоб вона взагалі чіпала нових людей'],
+          ['Як', 'говорити', 'до людей, яких ти ще не знаєш'],
+          ['Як', 'заманювати', 'контентом тих, хто тебе ніколи не бачив'],
+          ['Як', 'зібрати дослідження ЦА', 'не вбивши на це два тижні життя'],
+        ].map(([prefix, bold, rest]) => (
+          <li class="flex items-start gap-3">
+            <span class="mt-1 text-accent font-bold text-lg leading-none">✗</span>
+            <span class="text-ink/80 text-lg">
+              Ти не розумієш: {prefix} <strong class="text-heading">{bold}</strong> {rest}
+            </span>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Картка Тані -->
+      <div class="bg-card rounded-2xl p-8 shadow-sm border border-silver/30">
+        <p class="text-ink/70 text-sm font-display font-semibold tracking-widest uppercase mb-4">Реальна ситуація</p>
+        <p class="text-lg md:text-xl text-heading leading-relaxed mb-3">
+          Так було у <strong>Тані</strong>. Точнісінько так.
+        </p>
+        <p class="text-base md:text-lg text-ink/80 leading-relaxed">
+          За <strong class="text-heading">2–3 години зі мною</strong> ми зробимо deep research її ринку,
+          конкурентів і ЦА — і вийдемо з готовим{' '}
+          <strong class="text-heading">продуктом під ЦА, позиціонуванням і офером</strong>.
+          Те, на що б їй знадобилося 2–3 тижні і 30 кав.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       3. WHAT WE DO
+  ═══════════════════════════════════════════ -->
+  <section class="bg-card px-4 py-20">
+    <div class="max-w-2xl mx-auto">
+      <span class="section-tag">Програма</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-heading mt-4 mb-12">
+        За 3 години ми закриємо те, на що йдуть тижні
+      </h2>
+
+      <ol class="space-y-8">
+        {[
+          ['Deep research ринку', 'через AI — поки інші пишуть в ChatGPT «зроби аналіз ринку», ми робимо нормально'],
+          ['Deep research конкурентів', '— побачимо хто реально бере твою аудиторію і чим'],
+          ['Deep research ЦА', '— без CustDev-інтерв\'ю на 2 тижні. Зробимо це за годину'],
+          ['Позиціонування', 'на основі цих 3-х аналізів — а не «придумала в душі»'],
+          ['Оффер', 'від якого тупо відмовлятись — за формулою, а не «бо подобається»'],
+        ].map(([bold, rest], i) => (
+          <li class="flex gap-6 items-start">
+            <span class="font-display font-extrabold text-4xl md:text-5xl text-accent/30 leading-none w-12 shrink-0 select-none">
+              {i + 1}
+            </span>
+            <div class="pt-1">
+              <strong class="font-display font-bold text-xl text-heading">{bold}</strong>
+              <span class="text-ink/70 text-lg"> {rest}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <p class="mt-12 text-muted text-sm italic">
+        * ChatGPT-вода офіційно не приймається. У нас тільки Claude і нормальні промпти.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. WHAT YOU GET
+  ═══════════════════════════════════════════ -->
+  <section class="bg-bg px-4 py-20">
+    <div class="max-w-4xl mx-auto">
+      <span class="section-tag">Що ти отримаєш</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-heading mt-4 mb-12">
+        За 149 грн (один обід) ти отримуєш
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {[
+          {
+            num: '01',
+            title: 'Доступ на онлайн-сесію.',
+            body: '3 години живої роботи в Zoom 28 травня о 18:00. Ти не дивишся — ти разом зі мною робиш ресерч і збираєш позиціонування під СВІЙ бізнес.',
+          },
+          {
+            num: '02',
+            title: 'Запис — якщо не зможеш онлайн.',
+            body: 'Виплив форс-мажор? Дивишся в записі, повторюєш покроково. Запис залишається назавжди.',
+          },
+          {
+            num: '03',
+            title: 'Гайд + промпти (після сесії).',
+            body: 'Покроковий гайд «як зробити це саме самостійно» + усі AI-промпти, які я використовую на стратсесії. Приходить на email після веба — бо роблю його на основі реальних матеріалів. Береш і повторюєш у себе для будь-якої ніші.',
+          },
+        ].map((card) => (
+          <div class="bg-card rounded-2xl p-7 border border-silver/30 shadow-sm flex flex-col gap-3">
+            <span class="font-display font-extrabold text-3xl text-accent/25">{card.num}</span>
+            <strong class="font-display font-bold text-lg text-heading leading-snug">{card.title}</strong>
+            <p class="text-ink/70 text-base leading-relaxed">{card.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Price block -->
+      <div class="text-center bg-card rounded-2xl p-10 border border-silver/30 shadow-sm">
+        <p class="font-display font-extrabold text-7xl text-accent mb-2">149 грн</p>
+        <p class="text-ink/60 text-lg mb-1">= вартість одного обіду</p>
+        <p class="text-ink/60 text-lg mb-8">= у 200 разів дешевше за два тижні твого часу</p>
+        <button
+          onclick="handlePayment()"
+          class="btn-primary cursor-pointer"
+        >
+          Записатись зараз
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5. ABOUT
+  ═══════════════════════════════════════════ -->
+  <section class="bg-soft px-4 py-16">
+    <div class="max-w-2xl mx-auto flex flex-col md:flex-row items-center gap-8">
+      <!-- Avatar placeholder -->
+      <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-accent/20 border-2 border-accent/30 shrink-0 flex items-center justify-center">
+        <span class="font-display font-bold text-2xl text-accent">Ю</span>
+      </div>
+      <div>
+        <span class="section-tag mb-2">Хто я взагалі</span>
+        <p class="text-lg md:text-xl text-ink/85 leading-relaxed mt-2">
+          Я <strong class="text-heading">Юлія</strong>. Маркетолог із 5-річним досвідом + AI-спеціаліст.
+          Знаю як використовувати AI в маркетингу — і, що важливіше, знаю{' '}
+          <strong class="text-heading">як НЕ треба</strong> (підказка: не в ChatGPT).
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       6. FINAL CTA
+  ═══════════════════════════════════════════ -->
+  <section class="bg-ink px-4 py-24 text-center">
+    <div class="max-w-2xl mx-auto">
+      <h2 class="font-display font-extrabold text-3xl md:text-5xl text-white leading-tight mb-10">
+        Готова перестати викидати тижні часу на щось, що можна зробити якісно за години?
+      </h2>
+      <button
+        onclick="handlePayment()"
+        class="btn-primary-lg cursor-pointer"
+      >
+        Оплатити 149 грн через Wayforpay
+      </button>
+      <p class="mt-5 text-white/40 text-sm italic">
+        Після оплати на email прийде додаткова інфа і Zoom-посилання.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7. FAQ
+  ═══════════════════════════════════════════ -->
+  <section class="bg-bg px-4 py-20">
+    <div class="max-w-2xl mx-auto">
+      <span class="section-tag">FAQ</span>
+      <h2 class="font-display font-bold text-3xl md:text-4xl text-heading mt-4 mb-10">
+        Часті питання
+      </h2>
+
+      <div class="space-y-0 divide-y divide-silver/40" id="faq">
+        {[
+          {
+            q: 'А якщо я не зможу прийти онлайн?',
+            a: 'Не страшно. Запис прийде на email після сесії.',
+          },
+          {
+            q: 'Коли я отримаю гайд і промпти?',
+            a: 'На email — після стратсесії. Я роблю гайд і збираю промпти на основі реальних матеріалів веба, а не "написане в столі" заздалегідь. Так чесніше.',
+          },
+          {
+            q: 'Я ще на старті, не маю стабільного бізнесу. Підійде?',
+            a: 'Особливо тобі. Сильне позиціонування на старті = в 10 разів менше шишок далі.',
+          },
+          {
+            q: 'А що буде після цієї сесії?',
+            a: 'Це перша з трьох сесій. Друга — про продуктову лінійку. Третя — про воронку. Якщо зайде — продовжимо. Якщо ні — у тебе залишається готове позиціонування і оффер. Уже чимало за 149 грн.',
+          },
+        ].map((item, i) => (
+          <details class="group py-5 cursor-pointer" open={i === 0}>
+            <summary class="flex justify-between items-center list-none font-display font-semibold text-lg text-heading gap-4">
+              {item.q}
+              <span class="text-accent text-2xl font-light leading-none shrink-0 transition-transform group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-ink/70 text-base leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       8. FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="bg-bg border-t border-silver/40 px-4 py-8">
+    <div class="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted">
+      <span>© 2026 Юлія Лайко</span>
+      <div class="flex items-center gap-6">
+        <a
+          href="https://t.me/julylay"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-heading transition-colors"
+        >
+          Telegram
+        </a>
+        <a href="/oferta" class="hover:text-heading transition-colors">
+          Договір оферти
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Payment handler script -->
+  <script is:inline>
+    async function handlePayment() {
+      try {
+        const res = await fetch('/api/create-payment', { method: 'POST' });
+        const data = await res.json();
+
+        // Build hidden form and submit to Wayforpay
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://secure.wayforpay.com/pay';
+        form.style.display = 'none';
+
+        const fields = {
+          merchantAccount: data.merchantAccount,
+          merchantAuthType: data.merchantAuthType,
+          merchantDomainName: data.merchantDomainName,
+          orderReference: data.orderReference,
+          orderDate: data.orderDate,
+          amount: data.amount,
+          currency: data.currency,
+          merchantSignature: data.merchantSignature,
+          returnUrl: data.returnUrl,
+          serviceUrl: data.serviceUrl,
+          language: data.language,
+        };
+
+        // Arrays
+        data.productName.forEach((v, i) => {
+          const inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = `productName[${i}]`;
+          inp.value = v;
+          form.appendChild(inp);
+        });
+        data.productCount.forEach((v, i) => {
+          const inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = `productCount[${i}]`;
+          inp.value = v;
+          form.appendChild(inp);
+        });
+        data.productPrice.forEach((v, i) => {
+          const inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = `productPrice[${i}]`;
+          inp.value = v;
+          form.appendChild(inp);
+        });
+
+        Object.entries(fields).forEach(([key, value]) => {
+          const inp = document.createElement('input');
+          inp.type = 'hidden';
+          inp.name = key;
+          inp.value = String(value);
+          form.appendChild(inp);
+        });
+
+        document.body.appendChild(form);
+        form.submit();
+      } catch (err) {
+        console.error('Payment error:', err);
+        alert('Помилка при підключенні до платіжної системи. Спробуй ще раз або напиши у Telegram.');
+      }
+    }
+  </script>
+</Layout>

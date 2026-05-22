@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+
+<Layout
+  title="Дякую за оплату — Юлія Лайко"
+  description="Оплата успішна. Перевір email — там вже чекає Zoom-посилання."
+>
+  <section class="min-h-screen bg-bg flex items-center px-4 py-20">
+    <div class="max-w-xl mx-auto text-center">
+
+      <!-- Іконка успіху -->
+      <div class="w-20 h-20 rounded-full bg-accent/15 flex items-center justify-center mx-auto mb-8">
+        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+          fill="none" stroke="#E783DA" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12" />
+        </svg>
+      </div>
+
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-heading mb-6">
+        Готово 🎉
+      </h1>
+
+      <p class="text-lg text-ink/80 leading-relaxed mb-8">
+        Дякую за оплату. За <strong class="text-heading">5 хвилин</strong> на твій email прийде:
+      </p>
+
+      <!-- Що приходить зараз -->
+      <div class="bg-card rounded-2xl p-7 shadow-sm border border-silver/30 text-left mb-6">
+        <p class="font-display font-semibold text-sm tracking-widest uppercase text-muted mb-4">Одразу після оплати</p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-ink/80">Додаткова інформація про сесію</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-ink/80">Zoom-посилання (28 травня, 18:00 за Києвом)</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Що приходить після сесії -->
+      <div class="bg-card rounded-2xl p-7 shadow-sm border border-silver/30 text-left mb-10">
+        <p class="font-display font-semibold text-sm tracking-widest uppercase text-muted mb-4">
+          Після стратсесії (28 травня)
+        </p>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-ink/80">Запис стратсесії (якщо не змогла бути онлайн)</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-ink/80">Покроковий гайд «як зробити це саме самостійно»</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-accent font-bold mt-0.5">✓</span>
+            <span class="text-ink/80">Усі AI-промпти, які я використовувала на сесії</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="text-ink/60 text-base mb-8">
+        Якщо за 15 хвилин після оплати нічого не прийшло — напиши мені в Telegram:
+        <a
+          href="https://t.me/julylay"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-heading font-semibold hover:text-accent transition-colors"
+        >
+          @julylay
+        </a>
+      </p>
+
+      <p class="text-ink/50 text-sm">
+        До зустрічі на сесії.<br />
+        <strong class="text-heading font-display">Юлія</strong>
+      </p>
+    </div>
+  </section>
+
+  <footer class="bg-bg border-t border-silver/40 px-4 py-8">
+    <div class="max-w-2xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted">
+      <span>© 2026 Юлія Лайко</span>
+      <div class="flex items-center gap-6">
+        <a href="https://t.me/julylay" target="_blank" rel="noopener noreferrer"
+          class="hover:text-heading transition-colors">Telegram</a>
+        <a href="/oferta" class="hover:text-heading transition-colors">Договір оферти</a>
+      </div>
+    </div>
+  </footer>
+</Layout>

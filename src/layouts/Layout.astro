@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import FloatingTelegramButton from '../components/FloatingTelegramButton.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'Стратсесія за 149 грн: позиціонування і оффер за 3 години — Юлія Лайко',
+  description = 'Жива онлайн-сесія 28 травня. Deep research ринку, конкурентів і ЦА через AI. Позиціонування і оффер на виході. Без двох тижнів кастдевів і ChatGPT-води.',
+  ogImage = '/og-image.png',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="uk_UA" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Google Fonts: Manrope + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Plausible Analytics -->
+    <script defer data-domain="yuliialaiko.com" src="https://plausible.io/js/script.js"></script>
+  </head>
+  <body>
+    <slot />
+    <FloatingTelegramButton />
+  </body>
+</html>
