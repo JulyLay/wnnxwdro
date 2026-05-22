@@ -1,0 +1,20 @@
+{
+  "name": "yuliia-strategy-session",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "@astrojs/vercel": "^8.0.4",
+    "@tailwindcss/typography": "^0.5.19",
+    "astro": "^5.7.12",
+    "autoprefixer": "^10.5.0",
+    "tailwindcss": "^3.4.19"
+  }
+}
